@@ -3,7 +3,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+// produces null in calculator
 public class Calculator {
     private JFrame frame;
     private JTextField display;
