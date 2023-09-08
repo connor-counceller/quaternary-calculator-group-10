@@ -18,6 +18,9 @@ class BaseConverterTest {
     void baseTenToBaseFour() {
         BaseConverter baseConverter = new BaseConverter();
         assertEquals(0, baseConverter.baseTenToBaseFour(0));
+        assertEquals(27, baseConverter.baseFourToBaseTen(123));
+        assertEquals(57, baseConverter.baseFourToBaseTen(321));
+        assertEquals(230, baseConverter.baseFourToBaseTen(3212));
     }
 
 
