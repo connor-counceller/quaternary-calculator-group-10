@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +8,10 @@ public class Calculator {
     private JTextField display;
     private String currentInput;
 
+    private char operatorClicked;
+
     private boolean isOperatorClicked;
+
 
 
     public Calculator() {
@@ -24,7 +26,7 @@ public class Calculator {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(5, 4));
         String[] buttonLabels = {
-          "0", "1", "+", "2",
+                "0", "1", "+", "2",
                 "3", "-", "*", "/",
                 "=", "<--", "CLR", " "
         };
@@ -40,6 +42,7 @@ public class Calculator {
 
         frame.setVisible(true);
     }
+
     private class buttonClickListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String command = e.getActionCommand();
@@ -50,13 +53,17 @@ public class Calculator {
                 }
                 currentInput += command;
                 display.setText(currentInput);
+
             }
+
         }
 
     }
+
     public int example(int numOne, int numTwo) {
-        return numOne+numTwo;
+        return numOne + numTwo;
     }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -64,4 +71,27 @@ public class Calculator {
             }
         });
     }
+
+        public void getResult () {
+            double result = 0;
+            double[] temporary = {0, 0};
+            temporary[1] = Double.parseDouble(display.getText());
+            try {
+                if (operatorClicked == '+') {
+                    result = temporary[0] + temporary[1];
+                } else if (operatorClicked == '-') {
+                    result = temporary[0] - temporary[1];
+                } else if (operatorClicked == '*') {
+                    result = temporary[0] * temporary[1];
+                } else if (operatorClicked == '/') {
+                    result = temporary[0] / temporary[1];
+                }
+                display.setText(Double.toString(result));
+                for(int i = 0; i < 4; i++);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+
 }
+
