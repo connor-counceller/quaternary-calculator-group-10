@@ -89,20 +89,25 @@ public class Calculator {
                 baseTenResult = baseFourNumbers.get(0);
                 for (int i = 1; i < baseFourNumbers.size(); i++) {
                     int baseTenOperand = baseFourNumbers.get(i);
-                    if (operator.equals("+")) {
-                        baseTenResult += baseTenOperand;
-                    } else if (operator.equals("-")) {
-                        baseTenResult -= baseTenOperand;
-                    } else if (operator.equals("*")) {
-                        baseTenResult *= baseTenOperand;
-                    } else if (operator.equals("/")) {
-                        if (baseTenOperand != 0) {
-                            baseTenResult /= baseTenOperand;
-                        } else {
-                            // Handle division by zero error
-                            display.setText("Error: Division by zero");
-                            return;
-                        }
+                    switch (operator) {
+                        case "+":
+                            baseTenResult += baseTenOperand;
+                            break;
+                        case "-":
+                            baseTenResult -= baseTenOperand;
+                            break;
+                        case "*":
+                            baseTenResult *= baseTenOperand;
+                            break;
+                        case "/":
+                            if (baseTenOperand != 0) {
+                                baseTenResult /= baseTenOperand;
+                            } else {
+                                // Handle division by zero error
+                                display.setText("Error: Division by zero");
+                                return;
+                            }
+                            break;
                     }
                 }
                 baseFourResult = baseConverter.baseTenToBaseFour(baseTenResult);
