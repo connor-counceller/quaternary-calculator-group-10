@@ -86,22 +86,22 @@ public class Calculator {
 
         private void calculateResult() {
             if (!baseFourNumbers.isEmpty()) {
-                baseTenResult = baseFourNumbers.get(0);
+                baseFourResult = baseFourNumbers.get(0);
                 for (int i = 1; i < baseFourNumbers.size(); i++) {
-                    int baseTenOperand = baseFourNumbers.get(i);
+                    int baseFourOperand = baseFourNumbers.get(i);
                     switch (operator) {
                         case "+":
-                            baseTenResult += baseTenOperand;
+                            baseFourResult += baseFourOperand;
                             break;
                         case "-":
-                            baseTenResult -= baseTenOperand;
+                            baseFourResult -= baseFourOperand;
                             break;
                         case "*":
-                            baseTenResult *= baseTenOperand;
+                            baseFourResult *= baseFourOperand;
                             break;
                         case "/":
-                            if (baseTenOperand != 0) {
-                                baseTenResult /= baseTenOperand;
+                            if (baseFourOperand != 0) {
+                                baseFourResult /= baseFourOperand;
                             } else {
                                 // Handle division by zero error
                                 display.setText("Error: Division by zero");
@@ -110,12 +110,20 @@ public class Calculator {
                             break;
                     }
                 }
-                baseFourResult = baseConverter.baseTenToBaseFour(baseTenResult);
+
+                if (isDisplayingBaseTen) {
+                    baseTenResult = baseConverter.baseFourToBaseTen(baseFourResult);
+                } else {
+                    baseTenResult = baseFourResult; // Set baseTenResult directly to baseFourResult
+                }
+
                 updateDisplay();
                 baseFourNumbers.clear();
                 currentInput = Integer.toString(baseFourResult);
             }
         }
+
+
 
         private void updateDisplay() {
             if (isDisplayingBaseTen) {
