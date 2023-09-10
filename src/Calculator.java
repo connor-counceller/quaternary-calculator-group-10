@@ -1,21 +1,18 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-
+// produces null in calculator
 public class Calculator {
     private JFrame frame;
     private JTextField display;
     private String currentInput;
-    private List<Integer> baseFourNumbers;
-    private int baseTenResult;
-    private int baseFourResult;
-    private String operator;
-    private boolean isDisplayingBaseTen;
-    private BaseConverter baseConverter; // Added BaseConverter instance
+
+    private char operatorClicked;
+
+    private boolean isOperatorClicked;
+
+
 
     public Calculator() {
         frame = new JFrame("Quaternary Calculator");
@@ -31,11 +28,11 @@ public class Calculator {
         String[] buttonLabels = {
                 "0", "1", "+", "2",
                 "3", "-", "*", "/",
-                "=", "<--", "CLR", "Toggle"
+                "=", "<--", "CLR", " "
         };
         for (String label : buttonLabels) {
             JButton button = new JButton(label);
-            button.addActionListener(new ButtonClickListener());
+            button.addActionListener(new buttonClickListener());
             button.setFont(new Font("Arial", Font.PLAIN, 18));
             buttonPanel.add(button);
         }
@@ -43,104 +40,28 @@ public class Calculator {
         frame.getContentPane().add(display, BorderLayout.NORTH);
         frame.getContentPane().add(buttonPanel, BorderLayout.CENTER);
 
-        baseFourNumbers = new ArrayList<>();
-        currentInput = "";
-        baseTenResult = 0;
-        baseFourResult = 0;
-        operator = "";
-        isDisplayingBaseTen = true;
-        baseConverter = new BaseConverter(); // Initialize BaseConverter
-
         frame.setVisible(true);
     }
 
-    private class ButtonClickListener implements ActionListener {
+    private class buttonClickListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String command = e.getActionCommand();
             if (command.matches("[0-3]")) {
+                if (isOperatorClicked) {
+                    currentInput = "";
+                    isOperatorClicked = false;
+                }
                 currentInput += command;
                 display.setText(currentInput);
-            } else if (command.equals("+") || command.equals("-") || command.equals("*") || command.equals("/")) {
-                if (!currentInput.isEmpty()) {
-                    baseFourNumbers.add(Integer.parseInt(currentInput));
-                    currentInput = "";
-                }
-                operator = command;
-            } else if (command.equals("=")) {
-                if (!currentInput.isEmpty()) {
-                    baseFourNumbers.add(Integer.parseInt(currentInput));
-                    calculateResult();
-                }
-            } else if (command.equals("CLR")) {
-                currentInput = "";
-                baseFourNumbers.clear();
-                baseTenResult = 0;
-                baseFourResult = 0;
-                operator = "";
-                display.setText("");
-                isDisplayingBaseTen = true;
-            } else if (command.equals("<--")) {
-                currentInput = "";
-                baseFourNumbers.clear();
-                baseTenResult = 0;
-                baseFourResult = 0;
-                operator = "";
-                display.setText("");
-                isDisplayingBaseTen = true;
-            } else if (command.equals("Toggle")) {
-                isDisplayingBaseTen = !isDisplayingBaseTen;
-                updateDisplay();
+
             }
+
         }
 
-        private void calculateResult() {
-            if (!baseFourNumbers.isEmpty()) {
-                baseFourResult = baseFourNumbers.get(0);
-                for (int i = 1; i < baseFourNumbers.size(); i++) {
-                    int baseFourOperand = baseFourNumbers.get(i);
-                    switch (operator) {
-                        case "+":
-                            baseFourResult += baseFourOperand;
-                            break;
-                        case "-":
-                            baseFourResult -= baseFourOperand;
-                            break;
-                        case "*":
-                            baseFourResult *= baseFourOperand;
-                            break;
-                        case "/":
-                            if (baseFourOperand != 0) {
-                                baseFourResult /= baseFourOperand;
-                            } else {
-                                // Handle division by zero error
-                                display.setText("Error: Division by zero");
-                                return;
-                            }
-                            break;
-                    }
-                }
+    }
 
-                if (isDisplayingBaseTen) {
-                    baseTenResult = baseConverter.baseFourToBaseTen(baseFourResult);
-                } else {
-                    baseTenResult = baseFourResult; // Set baseTenResult directly to baseFourResult
-                }
-
-                updateDisplay();
-                baseFourNumbers.clear();
-                currentInput = Integer.toString(baseFourResult);
-            }
-        }
-
-
-
-        private void updateDisplay() {
-            if (isDisplayingBaseTen) {
-                display.setText("Base 10: " + baseTenResult);
-            } else {
-                display.setText("Base 4: " + baseFourResult);
-            }
-        }
+    public int example(int numOne, int numTwo) {
+        return numOne + numTwo;
     }
 
     public static void main(String[] args) {
@@ -150,5 +71,27 @@ public class Calculator {
             }
         });
     }
+
+        public void getResult () {
+            double result = 0;
+            double[] temporary = {0, 0};
+            temporary[1] = Double.parseDouble(display.getText());
+            try {
+                if (operatorClicked == '+') {
+                    result = temporary[0] + temporary[1];
+                } else if (operatorClicked == '-') {
+                    result = temporary[0] - temporary[1];
+                } else if (operatorClicked == '*') {
+                    result = temporary[0] * temporary[1];
+                } else if (operatorClicked == '/') {
+                    result = temporary[0] / temporary[1];
+                }
+                display.setText(Double.toString(result));
+                for(int i = 0; i < 4; i++);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+
 }
 
