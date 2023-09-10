@@ -4,15 +4,6 @@ A calculator app that allows the user to perform mathematical calculations in th
 
 ## Manual
 
-### Buttons
-
-- "0", "1", "2", and "3" | Digit buttons for inputting your desired base 4 numbers.
-- "+", "-", "*", and "/" | Mathematical operation buttons for selecting the type of calculation you want to perform on your base 4 numbers.
-- "=" | Performs math operation using your previously input numbers and operator
-- "CLR" | Clears any values currently in the input/output field.
-- "Toggle" | Toggles between displaying the answer value in base 4 and base 10.
-- "<--" | 
-
 ### How to use
 
 1. Enter your first base 4 number using the 0-3 digits
@@ -23,7 +14,16 @@ A calculator app that allows the user to perform mathematical calculations in th
 6. Press clear button
 7. Repeat steps 1-6 for additional calculations
 
-- TODO: Add screenshots and finish small how-to-use manual
+- TODO: Add screenshots and finish how-to-use manual
+
+### Buttons
+
+- "0", "1", "2", and "3" | Digit buttons for inputting your desired base 4 numbers.
+- "+", "-", "*", and "/" | Mathematical operation buttons for selecting the type of calculation you want to perform on your base 4 numbers.
+- "=" | Performs math operation using your previously input numbers and operator
+- "CLR" | Clears any values currently in the input/output field.
+- "Toggle" | Toggles between displaying the answer value in base 4 and base 10.
+- "<--" |
 
 ## Dependencies
 
