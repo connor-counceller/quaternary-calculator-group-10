@@ -72,26 +72,5 @@ public class Calculator {
         });
     }
 
-        public void getResult () {
-            double result = 0;
-            double[] temporary = {0, 0};
-            temporary[1] = Double.parseDouble(display.getText());
-            try {
-                if (operatorClicked == '+') {
-                    result = temporary[0] + temporary[1];
-                } else if (operatorClicked == '-') {
-                    result = temporary[0] - temporary[1];
-                } else if (operatorClicked == '*') {
-                    result = temporary[0] * temporary[1];
-                } else if (operatorClicked == '/') {
-                    result = temporary[0] / temporary[1];
-                }
-                display.setText(Double.toString(result));
-                for(int i = 0; i < 4; i++);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
 
 }
-
