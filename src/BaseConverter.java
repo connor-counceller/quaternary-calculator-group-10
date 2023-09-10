@@ -14,14 +14,20 @@ public class BaseConverter {
     }
 
     public int baseTenToBaseFour(int baseTenInt) {
-        String baseTenString = Integer.toString(baseTenInt);
-        int baseFourInt = 0;
-        int power = 1;
-        for (int i = baseTenString.length() - 1; i >= 0; i--) {
-            int digit = Character.getNumericValue(baseTenString.charAt(i));
-            baseFourInt += digit * power;
-            power = power * 4;
+        int baseFourInt;
+        StringBuilder baseFourBuilder = new StringBuilder();
+        if (baseTenInt == 0){
+            return 0;
         }
+        else{
+            while(baseTenInt != 0){
+                int quotient = baseTenInt % 4;
+                baseFourBuilder.insert(0, quotient);
+                baseTenInt = baseTenInt/4;
+            }
+        }
+        String baseFourString = baseFourBuilder.toString();
+        baseFourInt = Integer.parseInt(baseFourString);
         return baseFourInt;
     }
 }
