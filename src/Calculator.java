@@ -79,6 +79,14 @@ public class Calculator {
                 operator = "";
                 display.setText("");
                 isDisplayingBaseTen = true;
+            } else if (command.equals("<--")) {
+                currentInput = "";
+                baseFourNumbers.clear();
+                baseTenResult = 0;
+                baseFourResult = 0;
+                operator = "";
+                display.setText("");
+                isDisplayingBaseTen = true;
             } else if (command.equals("Toggle")) {
                 isDisplayingBaseTen = !isDisplayingBaseTen;
                 updateDisplay();
