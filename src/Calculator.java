@@ -31,7 +31,7 @@ public class Calculator {
         String[] buttonLabels = {
                 "0", "1", "+", "2",
                 "3", "-", "*", "/",
-                "=", "<--", "CLR", "Toggle"
+                "=", "", "CLR", "Toggle"
         };
         for (String label : buttonLabels) {
             JButton button = new JButton(label);
@@ -72,14 +72,6 @@ public class Calculator {
                     calculateResult();
                 }
             } else if (command.equals("CLR")) {
-                currentInput = "";
-                baseFourNumbers.clear();
-                baseTenResult = 0;
-                baseFourResult = 0;
-                operator = "";
-                display.setText("");
-                isDisplayingBaseTen = true;
-            } else if (command.equals("<--")) {
                 currentInput = "";
                 baseFourNumbers.clear();
                 baseTenResult = 0;

@@ -34,6 +34,9 @@ A calculator app that allows the user to perform mathematical calculations in th
 - Connor Counceller = Set up project (GitHub repo, README format, unit testing library, basic empty starting classes, etc.)
 - Connor Counceller = Add BaseConverter class, .baseFourToBaseTen() method, and correspondinbg unit tests
 - Connor Counceller = Fill out README file and manual/screenshots
+- Kris Thurman = set up GUI
+- Kris Thurman = format the calculator
+- Kris Thurman = add click buttons
 
 ## Meetings
 
