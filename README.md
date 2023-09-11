@@ -32,11 +32,13 @@ A calculator app that allows the user to perform mathematical calculations in th
 
 [Name] = [Task]
 - Connor Counceller = Set up project (GitHub repo, README format, unit testing library, basic empty starting classes, etc.)
-- Connor Counceller = Add BaseConverter class, .baseFourToBaseTen() method, and correspondinbg unit tests
+- Connor Counceller = Add BaseConverter class, .baseFourToBaseTen() method, and corresponding unit tests
 - Connor Counceller = Fill out README file and manual/screenshots
 - Kris Thurman = set up GUI
 - Kris Thurman = format the calculator
 - Kris Thurman = add click buttons
+- Micah Harker = Add .baseTenToBaseFour() method to BaseConverter class, and corresponding unit tests
+- Micah Harker = Implement CalcOperations into Calculator class to separate GUI and math operations, write corresponding tests
 
 ## Meetings
 
