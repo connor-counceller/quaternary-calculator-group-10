@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +15,8 @@ public class Calculator {
     private String operator;
     private boolean isDisplayingBaseTen;
     private BaseConverter baseConverter; // Added BaseConverter instance
+
+    private CalcOperations calcOperations; //Added CalcOperations instance
 
     public Calculator() {
         frame = new JFrame("Quaternary Calculator");
@@ -86,30 +87,12 @@ public class Calculator {
         }
 
         private void calculateResult() {
+            calcOperations = new CalcOperations();
             if (!baseFourNumbers.isEmpty()) {
                 baseFourResult = baseFourNumbers.get(0);
                 for (int i = 1; i < baseFourNumbers.size(); i++) {
                     int baseFourOperand = baseFourNumbers.get(i);
-                    switch (operator) {
-                        case "+":
-                            baseFourResult += baseFourOperand;
-                            break;
-                        case "-":
-                            baseFourResult -= baseFourOperand;
-                            break;
-                        case "*":
-                            baseFourResult *= baseFourOperand;
-                            break;
-                        case "/":
-                            if (baseFourOperand != 0) {
-                                baseFourResult /= baseFourOperand;
-                            } else {
-                                // Handle division by zero error
-                                display.setText("Error: Division by zero");
-                                return;
-                            }
-                            break;
-                    }
+                    baseFourResult = calcOperations.getResult(operator,baseFourResult,baseFourOperand);
                 }
 
                 if (isDisplayingBaseTen) {
