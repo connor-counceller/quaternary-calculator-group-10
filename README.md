@@ -39,6 +39,7 @@ A calculator app that allows the user to perform mathematical calculations in th
 - Kris Thurman = add click buttons
 - Micah Harker = Add .baseTenToBaseFour() method to BaseConverter class, and corresponding unit tests
 - Micah Harker = Implement CalcOperations into Calculator class to separate GUI and math operations, write corresponding tests
+- Adrianna Hatcher = helped with math operations
 
 ## Meetings
 
