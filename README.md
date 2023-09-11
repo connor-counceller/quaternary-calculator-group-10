@@ -14,27 +14,26 @@ A calculator app that allows the user to perform mathematical calculations in th
 6. Press clear button
 7. Repeat steps 1-6 for additional calculations
 
-- TODO: Add screenshots and finish how-to-use manual
-
 ### Buttons
 
 - "0", "1", "2", and "3" | Digit buttons for inputting your desired base 4 numbers.
+- ![](src/manual-screenshot2.png)
 - "+", "-", "*", and "/" | Mathematical operation buttons for selecting the type of calculation you want to perform on your base 4 numbers.
-- "=" | Performs math operation using your previously input numbers and operator
+- ![](src/manual-screenshot3.png)
+- "=" | Performs math operation using your previously input numbers and operator.
+- ![](src/manual-screenshot4.png)
 - "CLR" | Clears any values currently in the input/output field.
+- ![](src/manual-screenshot6.png)
 - "Toggle" | Toggles between displaying the answer value in base 4 and base 10.
+- ![](src/manual-screenshot5.png)
 - "<--" |
-
-## Dependencies
-
-- TODO: Add any dependencies
 
 ## Tasks
 
 [Name] = [Task]
 - Connor Counceller = Set up project (GitHub repo, README format, unit testing library, basic empty starting classes, etc.)
 - Connor Counceller = Add BaseConverter class, .baseFourToBaseTen() method, and correspondinbg unit tests
-- Connor Counceller = Fill out README file sections
+- Connor Counceller = Fill out README file and manual/screenshots
 
 ## Meetings
 
